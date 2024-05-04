@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whatsapp</title>
+</head>
+<body>
+    <h1>Edit pages</h1>
+    <p>Your id : <b><%= user._id %></b></p>
+    <p>Your Email : <b><%= user.email %></b></p>
+
+    <form method="post" action="/users/<%=user._id%>?_method=put">
+        <textarea name="username" cols="30" rows="10"><%=user.username %></textarea>
+        <button>Submit</button>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whatsapp</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+
+    
+    <h2>All users Record</h2>
+    <form method="get" action="/users/new">
+        <Button id="addNewUser">Add New User</Button>
+
+    </form>
+    <!-- <a href="./newUser.ejs">Add New User</a> -->
+        
+        <table border="1">
+            <tr>
+                <th>user Id</th>
+                <th>userName</th>
+                <th>user Email</th>
+                <th>user Password</th>
+                <th>Operation</th>
+            </tr>
+            <%for(let user of users){%>
+            <tr>
+                <td><%=user._id%></td>
+                <td><%=user.username%></td>
+                <td><%=user.email%></td>
+                <td><%=user.password%></td>
+                <td id="btn">
+                    <form method="get" action="/users/<%=user._id %>/edit">
+                    <button id="edit"> Edit </button>
+                </form>
+                <form  method="post" action="/users/<%=user._id%>?_method=DELETE">
+                    <button id="delete">Delete</button>
+                </form></td>
+            </tr>
+            <% } %>
+        </table>
+    </div>
+   
+
+</body>
+</html>
